@@ -9,7 +9,49 @@ grid_value.textContent = slider_value + " X " + slider_value;
 slider_div.appendChild(grid_value);
 
 generateGrid( slider_value );
-colorRainbow();
+colorBlack();
+
+const menu = document.querySelector('.buttons');
+const buttons = menu.querySelectorAll('button');
+buttons[1].style.backgroundColor = 'darkblue';
+let color = false;
+
+for ( let button of buttons )
+{
+    button.addEventListener('click', () => {
+        if ( button.className === 'color' )
+        {
+            color = true;
+            colorRainbow();
+            buttons[0].style.backgroundColor = 'darkblue';
+            buttons[1].style.backgroundColor = 'rgb(33, 42, 58)';
+        }
+
+        else if ( button.className === 'black' )
+        {
+            color = false;
+            colorBlack();
+            buttons[0].style.backgroundColor = 'rgb(33, 42, 58)';
+            buttons[1].style.backgroundColor = 'darkblue';
+        }
+
+        else if ( button.className === 'clear' )
+        {
+            removeGrid(slider_value);
+            generateGrid(slider_value);
+
+            if ( color === true )
+            {
+                colorRainbow();
+            }
+    
+            else if ( color === false )
+            {
+                colorBlack();
+            }
+        }
+    });
+}
 
 slider.addEventListener('input', () => {
     slider_value = slider.value;
@@ -19,59 +61,14 @@ slider.addEventListener('input', () => {
 
     removeGrid(slider_value);
     generateGrid(slider_value);
-    colorRainbow();
+
+    if ( color === true )
+    {
+        colorRainbow();
+    }
+
+    else if ( color === false )
+    {
+        colorBlack();
+    }
 });
-
-function generateGrid( size ) 
-{
-    const grid = document.querySelector('.canvas');
-
-    for ( let i = 0; i < size; i++ )
-    {
-        for ( let j = 0; j < size; j++ )
-        {
-            div = document.createElement('div');
-            div.style.width = (32 / size) + "rem";
-            div.style.height = (32 / size) + "rem";
-            div.style.outline = '0.5px solid gray';
-            grid.appendChild(div);
-        }
-    }
-}
-
-function removeGrid()
-{
-    const grid = document.querySelector('.canvas');
-    const divs = grid.querySelectorAll('div');
-
-    for ( let div of divs )
-    {
-        grid.removeChild(div);
-    }
-}
-
-function colorBlack()
-{
-    const grid = document.querySelector('.canvas');
-    const divs = grid.querySelectorAll('div');
-
-    for ( let div of divs )
-    {
-        div.addEventListener('mouseover', () => {
-            div.style.backgroundColor = 'black';
-        });
-    }
-}
-
-function colorRainbow()
-{
-    const grid = document.querySelector('.canvas');
-    const divs = grid.querySelectorAll('div');
-
-    for ( let div of divs )
-    {
-        div.addEventListener('mouseover', () => {
-            div.style.backgroundColor = "rgb(" + Math.floor(Math.random() * 25) + 1 + "," + Math.floor(Math.random() * 25) + 1 + "," + Math.floor(Math.random() * 25) + 1 + ")";
-        });
-    }
-}

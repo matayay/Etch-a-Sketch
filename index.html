@@ -6,17 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-Sketch</title>
     <link rel="stylesheet" href="./style.css">
+    <script src="./tool.js" defer></script>
     <script src="./sketch.js" defer></script>
 </head>
 <body>
     <h1>Etch a Sketch</h1>
 
-    <div class="container">
-        <div class="canvas"></div>
-    </div>
+    <div class="etch">
+        <div class="container">
+            <div class="buttons">
+                <button class="color">Rainbow Mode</button>
+                <button class="black">Normal</button>
+                <button class="clear">Clear</button>
+            </div>
+            
+            <div class="canvas"></div>
 
-    <div class="slidecontainer">
-        <input type="range" min="2" max="64" value="32" class="slider" id="myRange" step="2">
+            <div class="slidecontainer">
+                <input type="range" min="2" max="64" value="32" class="slider" id="myRange" step="2">
+            </div>
+        </div>
     </div>
 </body>
 </html>
