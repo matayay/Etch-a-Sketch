@@ -1,0 +1,29 @@
+body {
+    background-color: rgb(187, 181, 181);
+    margin-left: 0;
+    margin-right: 0;
+}
+
+body h1 {
+    text-align: center;
+    font-size: 5rem;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.canvas {
+    width: 32rem;
+    height: 32rem;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.slidecontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
