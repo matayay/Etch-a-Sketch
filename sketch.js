@@ -9,12 +9,13 @@ grid_value.textContent = slider_value + " X " + slider_value;
 slider_div.appendChild(grid_value);
 
 generateGrid( slider_value );
-colorBlack();
+colorDefault();
 
 const menu = document.querySelector('.buttons');
 const buttons = menu.querySelectorAll('button');
 buttons[1].style.backgroundColor = 'darkblue';
 let color = false;
+let erase_color = false;
 
 for ( let button of buttons )
 {
@@ -22,17 +23,21 @@ for ( let button of buttons )
         if ( button.className === 'color' )
         {
             color = true;
+            erase_color = false;
             colorRainbow();
             buttons[0].style.backgroundColor = 'darkblue';
             buttons[1].style.backgroundColor = 'rgb(33, 42, 58)';
+            buttons[2].style.backgroundColor = 'rgb(33, 42, 58)';
         }
 
         else if ( button.className === 'black' )
         {
             color = false;
-            colorBlack();
+            erase_color = false;
+            colorDefault();
             buttons[0].style.backgroundColor = 'rgb(33, 42, 58)';
             buttons[1].style.backgroundColor = 'darkblue';
+            buttons[2].style.backgroundColor = 'rgb(33, 42, 58)';
         }
 
         else if ( button.className === 'clear' )
@@ -40,15 +45,38 @@ for ( let button of buttons )
             removeGrid(slider_value);
             generateGrid(slider_value);
 
-            if ( color === true )
+            if ( erase_color === true )
+            {
+                erase();
+                buttons[0].style.backgroundColor = 'rgb(33, 42, 58)';
+                buttons[1].style.backgroundColor = 'rgb(33, 42, 58)';
+                buttons[2].style.backgroundColor = 'darkblue';
+            }
+
+            else if ( color === true )
             {
                 colorRainbow();
+                buttons[0].style.backgroundColor = 'darkblue';
+                buttons[1].style.backgroundColor = 'rgb(33, 42, 58)';
+                buttons[2].style.backgroundColor = 'rgb(33, 42, 58)';
             }
     
             else if ( color === false )
             {
-                colorBlack();
+                colorDefault();
+                buttons[0].style.backgroundColor = 'rgb(33, 42, 58)';
+                buttons[1].style.backgroundColor = 'darkblue';
+                buttons[2].style.backgroundColor = 'rgb(33, 42, 58)';
             }
+        }
+
+        else if ( button.className === 'erase' )
+        {
+            erase_color = true;
+            erase();
+            buttons[0].style.backgroundColor = 'rgb(33, 42, 58)';
+            buttons[1].style.backgroundColor = 'rgb(33, 42, 58)';
+            buttons[2].style.backgroundColor = 'darkblue';
         }
     });
 }
@@ -62,13 +90,18 @@ slider.addEventListener('input', () => {
     removeGrid(slider_value);
     generateGrid(slider_value);
 
-    if ( color === true )
+    if ( erase_color === true )
+    {
+        erase();
+    }
+
+    else if ( color === true )
     {
         colorRainbow();
     }
 
     else if ( color === false )
     {
-        colorBlack();
+        colorDefault();
     }
 });

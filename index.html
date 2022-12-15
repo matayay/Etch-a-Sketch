@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-Sketch</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="./tool.js" defer></script>
+    <script src="./tools.js" defer></script>
     <script src="./sketch.js" defer></script>
 </head>
 <body>
@@ -16,14 +16,18 @@
         <div class="container">
             <div class="buttons">
                 <button class="color">Rainbow Mode</button>
-                <button class="black">Normal</button>
+                <div class="default">
+                    <button class="black">Normal</button>
+                    <input type="color" id="html5colorpicker" onchange="clickColor(0, -1, -1, 5)" value="black" style="width: 65%;">
+                </div>
+                <button class="erase">Erase</button>
                 <button class="clear">Clear</button>
             </div>
             
             <div class="canvas"></div>
 
             <div class="slidecontainer">
-                <input type="range" min="2" max="64" value="32" class="slider" id="myRange" step="2">
+                <input type="range" min="2" max="64" value="16" class="slider" id="myRange" step="2">
             </div>
         </div>
     </div>

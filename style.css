@@ -31,7 +31,14 @@ body h1 {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    gap: 6rem;
+    gap: 4rem;
+}
+
+.buttons .default {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .buttons button {
