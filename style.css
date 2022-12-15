@@ -22,9 +22,11 @@ body h1 {
     align-items: center;
     gap: 1rem;
     width: 53rem;
-    height: 42rem;
+    height: 40rem;
     background-color: rgb(187, 181, 181);
     border-radius: 6rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
 }
 
 .container .buttons {
