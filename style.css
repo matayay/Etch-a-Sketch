@@ -1,15 +1,14 @@
 body {
-    margin-left: 0;
-    margin-right: 0;
+    margin: 0rem;
 }
 
-body h1 {
+.title {
+    font-size: 4rem;
     text-align: center;
-    font-size: 5rem;
 }
 
 .etch {
-    height: 97vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,8 +20,8 @@ body h1 {
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    width: 53rem;
-    height: 40rem;
+    width: 45rem;
+    height: 20rem;
     background-color: rgb(187, 181, 181);
     border-radius: 6rem;
     padding-top: 4rem;
@@ -40,7 +39,7 @@ body h1 {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    gap: 4rem;
+    gap: 2rem;
 }
 
 .buttons .default {
@@ -61,8 +60,8 @@ body h1 {
 }
 
 .canvas {
-    width: 32rem;
-    height: 32rem;
+    width: 22rem;
+    height: 22rem;
     background-color: white;
     display: flex;
     flex-wrap: wrap;
