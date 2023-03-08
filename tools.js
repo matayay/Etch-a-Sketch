@@ -1,4 +1,4 @@
-function generateGrid( size ) 
+function generateGrid( size, width ) 
 {
     const grid = document.querySelector('.canvas');
 
@@ -7,8 +7,8 @@ function generateGrid( size )
         for ( let j = 0; j < size; j++ )
         {
             div = document.createElement('div');
-            div.style.width = (32 / size) + "rem";
-            div.style.height = (32 / size) + "rem";
+            div.style.width = (width / size) + "px";
+            div.style.height = (width / size) + "px";
             div.style.backgroundColor = 'white';
             div.style.outline = '0.5px solid gray';
             grid.appendChild(div);

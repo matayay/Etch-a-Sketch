@@ -3,12 +3,13 @@
 const slider = document.getElementById('myRange');
 const slider_div = document.querySelector('.slidecontainer');
 const grid_value = document.createElement('h3');
+const canvas = document.querySelector('.canvas');
 let slider_value = slider.value;
 
 grid_value.textContent = slider_value + " X " + slider_value;
 slider_div.appendChild(grid_value);
 
-generateGrid( slider_value );
+generateGrid( slider_value, canvas.getBoundingClientRect().width );
 colorDefault();
 
 const menu = document.querySelector('.buttons');
@@ -43,7 +44,7 @@ for ( let button of buttons )
         else if ( button.className === 'clear' )
         {
             removeGrid(slider_value);
-            generateGrid(slider_value);
+            generateGrid( slider_value, canvas.getBoundingClientRect().width );
 
             if ( erase_color === true )
             {
@@ -88,7 +89,7 @@ slider.addEventListener('input', () => {
     slider_div.appendChild(grid_value);
 
     removeGrid(slider_value);
-    generateGrid(slider_value);
+    generateGrid( slider_value, canvas.getBoundingClientRect().width );
 
     if ( erase_color === true )
     {
